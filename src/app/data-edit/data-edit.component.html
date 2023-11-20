@@ -1,0 +1,32 @@
+<h3 class="font-weight-bold" *ngIf="editmode==false">Create</h3>
+<h3 class="font-weight-bold" *ngIf="editmode==true">Edit Post</h3>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+  <div class="form-group">
+    <label class="font-weight-bold">Brand</label>
+    <input type="text" class="form-control" placeholder="brand" formControlName="brand">
+  </div>
+
+  <div class="form-group">
+    <label class="font-weight-bold">Model</label>
+    <input type="text" class="form-control" placeholder="model" formControlName="model">
+  </div>
+
+  <div class="form-group">
+    <label  class="font-weight-bold">ImagePath</label>
+    <input type="text" class="form-control" placeholder="image path" formControlName="imagePath"/>
+    <img src="{{form.value.imgPath}}" alt="" class="img-responsive"/>
+  </div>
+
+  <div class="form-group">
+    <label class="font-weight-bold">Status</label>
+    <select formControlName="status" name="status" id="status">
+      <option value="available">Available</option>
+      <option value="out of stock">Out of Stock</option>
+    </select>
+   <!-- <textarea type="text" class="form-control" placeholder="status" formControlName="status"></textarea> -->
+  </div>
+
+  <button class="btn-btn-primary font-weight-bold" type="submit" [disabled]="form.invalid">Save</button>
+  <button type="reset" class="btn-btn-danger font-weight-bold">Clear</button>
+</form>

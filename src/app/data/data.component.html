@@ -1,0 +1,46 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Index</th>
+            <th scope="col">Brand</th>
+            <th scope="col">Model</th>
+            <th scope="col">Image</th>  
+            <th scope="col">Status</th>
+            <th scope="col">Like</th>
+            <th scope="col">Actions</th>
+          </tr>
+          <tr>
+            <td>{{data?.id}}</td>
+            <td>{{data?.brand}}</td>
+            <td>{{data?.model}}</td>
+            <td><img src="{{data?.imagePath}}"></td>
+            <td *ngIf="data?.status=='out of stock'" class="p-3 mb-2 bg-danger text-white">{{data?.status}}</td>
+            <td *ngIf="data?.status=='soon'" class="p-3 mb-2 bg-success text-white">{{data?.status}}</td>
+            <td *ngIf="data?.status=='available'" class="p-3 mb-2 bg-primary text-whites">{{data?.status}}</td>
+            <td>{{data?.likes}}</td>
+            <td>
+              <button type="button" class="btn btn-primary"  (click)="editButton()"><i class="far fa-eye"></i>Edit</button>
+             <button type="button" class="btn btn-danger" (click)="deleteButton()"><i class="far fa-trash-alt" ></i>Delete</button>
+             <button (click)="likeButton()">Like</button>
+            </td>
+          </tr>
+        </thead>
+       
+      </table>
+      
+    </div>
+  </div>
+</div>
+
+
+<div class="comment-section">
+  <input type="text" [(ngModel)]="newComment" placeholder="Add a comment">
+  <button (click)="addComment()">Add Comment</button>
+</div><br>
+<div *ngFor="let comment of data?.comments">
+  <p>{{ comment }}</p>
+</div>
