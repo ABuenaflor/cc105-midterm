@@ -30,10 +30,10 @@ export class BackEndService {
     });
     this.dataService.setPosts(listofData);
     this.dataService.listChangedEvent.emit(listofData);
-      // console.log(listofData)
+       //console.log(listofData)
       // this.dataService.setPosts(listofData);
     }));
     
   }
-  
+ 
 }

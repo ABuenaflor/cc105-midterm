@@ -7,5 +7,6 @@ export class Data{
     public status:string,
     public likes: number,
     public comments: string[]=[],
+
 ){}
 };

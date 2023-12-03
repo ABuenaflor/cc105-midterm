@@ -25,7 +25,7 @@
             <td>
               <button type="button" class="btn btn-primary"  (click)="editButton()"><i class="far fa-eye"></i>Edit</button>
              <button type="button" class="btn btn-danger" (click)="deleteButton()"><i class="far fa-trash-alt" ></i>Delete</button>
-             <button (click)="likeButton()">Like</button>
+             <button type="button" class="btn btn-success" (click)="likeButton()">Like</button>
             </td>
           </tr>
         </thead>
@@ -39,7 +39,7 @@
 
 <div class="comment-section">
   <input type="text" [(ngModel)]="newComment" placeholder="Add a comment">
-  <button (click)="addComment()">Add Comment</button>
+  <button type="button" class="btn btn-info" (click)="addComment()">Add Comment</button>
 </div><br>
 <div *ngFor="let comment of data?.comments">
   <p>{{ comment }}</p>
